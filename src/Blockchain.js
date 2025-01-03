@@ -1,22 +1,27 @@
 const sha256 = require('sha256');
+const currentNodeUrl = process.argv[3]; //for creating network - with different port urls
 
 function Blockchain(){
+    // This is my basic block-chain
     this.chain=[];
     this.pendingTransactions =[];
-    this.createNewBlock(100,'0','0');
+    this.networkNodes = [] ;
+    this.createNewBlock(100,'0','0'); // we need to change this static to dynamioc ** - eq 1
 }
 
 Blockchain.prototype.createNewBlock = function(nonce, previousBlockHash, hash){
+    // Default value set to nonce = 100, previousBlockHash = '0', hash='0' ** - eq 2
     const newBlock ={
         index: this.chain.length+1,
         timestamp: Date.now(),
         transactions:this.pendingTransactions,
         nonce: nonce,
         hash:hash,
-        previousBlockHash:previousBlockHash
-    }
+        previousBlockHash:previousBlockHash,
+    } //created block info
 
-    this.pendingTransactions=[];
+    this.pendingTransactions=[]; //pending transactions are those which arn't mined yet, to mine hit GET: /mine
+    this.currentNodeUrl=currentNodeUrl;
     this.chain.push(newBlock);
      return newBlock;
 }
