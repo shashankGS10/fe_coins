@@ -1,0 +1,23 @@
+{
+  "name": "fecond_chain",
+  "version": "1.0.0",
+  "description": "It's fecond Crypto",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon --watch dev -e js index.js 8080"
+  },
+  "author": "ShashankGS",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.9",
+    "sha256": "^0.2.0",
+    "supertest": "^7.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2",
+    "uuid": "^11.0.3"
+  }
+}
